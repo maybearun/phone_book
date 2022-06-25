@@ -1,0 +1,6 @@
+Your application should provide a form where you can enter in first name, last name, and phone number. 
+You should then be able to perform 4 basic operations: 
+    create new entries in your database, 
+    read the entries,
+    update entries by editing any of the properties, 
+    delete the entries
