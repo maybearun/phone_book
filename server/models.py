@@ -1,6 +1,7 @@
 #the database table should contain one table with the fields first_name, last_name, phone_number
 from database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import TIMESTAMP, Column, Integer, String, false
+from sqlalchemy.sql.expression import text
 
 
 class PhoneBook(Base):
@@ -9,3 +10,4 @@ class PhoneBook(Base):
     first_name=Column(String, nullable=False )
     last_name=Column(String, nullable=False)
     phone_number=Column(String, nullable=False)
+    timestamp=Column(TIMESTAMP(timezone=True), nullable=false, server_default=text('now()') )
