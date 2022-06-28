@@ -1,0 +1,11 @@
+.list{
+    background-color: antiquewhite;
+    display:flex;
+    justify-content: space-between;
+    max-width: 500px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:0.5rem;
+    margin-top:10px;
+    align-items: center;
+}

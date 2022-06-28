@@ -1,0 +1,23 @@
+import "./ListComp.css";
+import Button from "../ButtonComp/button";
+
+
+const ListItem = ({phoneData,handleDelete}) => {
+  
+  return (
+    <div className="list">
+      <p>
+        <b>{phoneData.first_name} {phoneData.last_name}</b>
+      </p>
+      <p>{phoneData.phone_number}</p>
+      {/* <Button type="edit" content="Edit"></Button>
+      <Button class="danger" content="Delete"></Button> */}
+
+      <button className="edit">Edit</button>
+      <button className="danger" onClick={()=>handleDelete(phoneData.id)}>Danger</button>
+
+    </div>
+  );
+};
+
+export default ListItem;

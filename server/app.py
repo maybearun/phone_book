@@ -2,13 +2,21 @@ from fastapi import Depends, FastAPI,Response,HTTPException,status
 from sqlalchemy.orm import Session
 import schemas,models,database
 from database import get_db
-
+from fastapi.middleware.cors import CORSMiddleware
 #create the fastapi instance
 app=FastAPI()
 
 #create the tables in database
 models.Base.metadata.create_all(bind=database.engine)
 
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 #endpoints start here
 @app.get('/')
 def hello():

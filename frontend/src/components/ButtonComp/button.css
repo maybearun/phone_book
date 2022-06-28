@@ -1,0 +1,23 @@
+.primary{
+    background: #3AB0FF;
+    padding:0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.danger{
+    background: #F94C66;
+    padding:0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+
+}
+.edit{
+    background: #DAEAF1;
+    padding:0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+
+}

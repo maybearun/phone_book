@@ -8,5 +8,6 @@ class PhoneInp(BaseModel):
 
 #for response model
 class PhoneOut(PhoneInp):
+    id:int
     class Config:
 	    orm_mode=True

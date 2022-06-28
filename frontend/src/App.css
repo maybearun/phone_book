@@ -1,0 +1,13 @@
+.container{
+  margin:2em;
+  padding: 1.2rem;
+  max-width: 1000px;
+  /* display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap:10px; */
+  /* grid-column: 1/6; */
+}
+/* .header{
+  /* grid-column-start: 1;
+  grid-column-end: 6;
+}  */
