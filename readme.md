@@ -38,3 +38,4 @@ On clicking the Delete button the contact will be deleted.
 
 Functionality to edit the contact details is a work in progress. 
 
+Note: Since the backend is created using FastAPI, you can access the API Docs by going to `api-url:port/docs`
