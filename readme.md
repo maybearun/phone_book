@@ -36,6 +36,6 @@ This is how the contact list looks like.
 
 On clicking the Delete button the contact will be deleted.
 
-Functionality to edit the contact details is a work in progress. 
+On clicking the edit button, a form will open up wherein you can edit the contact details.
 
 Note: Since the backend is created using FastAPI, you can access the API Docs by going to `api-url:port/docs`
