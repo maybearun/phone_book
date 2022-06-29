@@ -21,20 +21,21 @@ In order to set up the frontend, `cd` into the `frontend` folder and run the com
 Once the database, server and the frontend is set up, You can start using the application.
 
 This is the start screen of the application.
-![start screen](img\start.png "start screen")
+![start screen](img/start.png "start screen")
 
 Click on the New Contact Button to get started.
 
-![form](img\form.png "form")
+![form](img/form.png "form")
 
 Enter all the necessary details(Make sure that you are inserting details correctly. As of now there is no Client side validation.)
 
 Once all the necessary details are filled up click on the Submit button.
 
 This is how the contact list looks like.
-![final](img\final.png "final")
+![final](img/final.png "final")
 
 On clicking the Delete button the contact will be deleted.
 
 Functionality to edit the contact details is a work in progress. 
 
+Note: Since the backend is created using FastAPI, you can access the API Docs by going to `api-url:port/docs`
