@@ -1,17 +1,19 @@
-import Button from "../ButtonComp/button";
-import "./modal.css";
-import {useState,useEffect} from 'react'
+import { useEffect, useState } from "react"
 
-const Modal = () => {
-  const [data,setData]=useState({
+const EditModal=({editData})=>{
+const [data,setData]=useState({
     first_name:"",
     last_name:"",
     phone_number:0
-  })
-  const onChange=(e)=>{
+})
+console.log(editData)
+useEffect(()=>{
+    setData({first_name:editData.first_name,last_name:editData.last_name,phone_number:editData.phone_number})
+},[editData])
+const onChange=(e)=>{
     setData({...data,[e.target.name]:e.target.value})
   }
-  const submitHandler=async(e)=>{
+const submitHandler=async(e)=>{
    
     e.preventDefault();
     
@@ -22,8 +24,8 @@ const Modal = () => {
     });
     console.log(dataJson);
       try{
-        const response=  await fetch('http://127.0.0.1:8000/api/v1/contacts',{
-          method:'POST',
+        const response=  await fetch(`http://127.0.0.1:8000/api/v1/contacts/${editData.id}`,{
+          method:'PUT',
           body:dataJson,
           headers: {
             "Content-Type": "application/json",
@@ -31,6 +33,7 @@ const Modal = () => {
         })
         const responseData = await response.json();
         console.log(responseData);
+        setData({first_name:"",last_name:"",phone_number:""})
       }
       catch(e){
         console.log(`Error:${e}`);
@@ -39,11 +42,10 @@ const Modal = () => {
   
   
   }
-// sendData();
-  return (
-    <div className="modal">
+    return(
+        <div className="modal">
       <form onSubmit={submitHandler}>
-        <b>New contact</b>
+        <b>Edit contact</b>
         <div className="form-element" >
           <label htmlFor="first-name">First name</label>
           <input id="first-name" name='first_name' value={data.first_name} onChange={onChange} placeholder="First Name" required />
@@ -62,7 +64,7 @@ const Modal = () => {
         <button className="primary">Submit</button>
       </form>
     </div>
-  );
-};
+    )
+}
 
-export default Modal;
+export default EditModal

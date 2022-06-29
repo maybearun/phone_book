@@ -2,7 +2,7 @@ import "./ListComp.css";
 import Button from "../ButtonComp/button";
 
 
-const ListItem = ({phoneData,handleDelete}) => {
+const ListItem = ({phoneData,handleDelete,editHandler}) => {
   
   return (
     <div className="list">
@@ -13,8 +13,8 @@ const ListItem = ({phoneData,handleDelete}) => {
       {/* <Button type="edit" content="Edit"></Button>
       <Button class="danger" content="Delete"></Button> */}
 
-      <button className="edit">Edit</button>
-      <button className="danger" onClick={()=>handleDelete(phoneData.id)}>Danger</button>
+      <button className="edit" onClick={()=>editHandler(phoneData.id)}>Edit</button>
+      <button className="danger" onClick={()=>handleDelete(phoneData.id)}>Delete</button>
 
     </div>
   );

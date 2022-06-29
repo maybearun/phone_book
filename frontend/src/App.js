@@ -5,7 +5,7 @@ import Modal from "./components/modal/modal";
 import {useState} from 'react'
 
 function App() {
-  const [show, setShow]=useState(true);
+  const [show, setShow]=useState(false);
   const toggleModal=()=>{
     setShow(!show);
     console.log(show);

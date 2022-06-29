@@ -1,9 +1,13 @@
 import { useEffect,useState } from "react";
 import ListItem from "./ListItem";
-// import "./ListComp.css";
+import EditModal from "../modal/editModal";
+import "./ListComp.css";
+import Modal from "../modal/modal";
 
 const ListComp = () => {
   const [data, setData] = useState([]);
+  const [editData,setEditData]=useState({});
+  const [show,setShow]=useState(false);
   useEffect(()=>{
       const fetchData= async()=>{
         const response=  await fetch('http://127.0.0.1:8000/api/v1/contacts')
@@ -29,13 +33,26 @@ const ListComp = () => {
     }
 
   };
-    
+  
+const editHandler=async(id)=>{
+  setShow(!show);
+  console.log(id)
+    const response=  await fetch(`http://127.0.0.1:8000/api/v1/contacts/${id}`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const responseData = await response.json();
+    setEditData(responseData);
 
-console.log(data);
+}
 
+// console.log(editData);
   return (
     <div>
-      {data.map((data)=><ListItem key={data.id} phoneData={data} handleDelete={handleDelete}/>)}
+      {data.map((data)=><ListItem key={data.id} phoneData={data} handleDelete={handleDelete} editHandler={editHandler}/>)}
+      <div className="toggle-form">
+        {show ? <EditModal editData={editData}/>:<></>}
+      </div>
     </div>
   );
 };
